@@ -13,23 +13,23 @@ function compute()
     var years = document.getElementById("years").value;
     var interest = principal * years * rate /100;
     var year = new Date().getFullYear()+parseInt(years);
-    document.getElementById("result").innerHTML="If you deposit "+principal+",\<br\>at an interest rate of "+rate+"%\<br\>You will receive an amount of "+interest+",\<br\>in the year "+year+"\<br\>"
     
-}
+    // validation for "Principal" input box. If the user enters zero or negative values, show an alert "Enter a positive number"
+    // nce the user clicks on the alert "OK" button, take the user back to the "Principal" input box, by setting the focus on this box.
 
-
-
-
-// validation for "Principal" input box. If the user enters zero or negative values, show an alert "Enter a positive number"
-// nce the user clicks on the alert "OK" button, take the user back to the "Principal" input box, by setting the focus on this box.
-function verifyPrincipal() 
-{
-    var principal = document.getElementById("principal").value;
     if (principal <= 0){
         alert("Enter a positive number");
+        document.getElementById("principal").focus();
     }
-    document.getElementById("principal").focus();
+    else{
+    document.getElementById("result").innerHTML="If you deposit "+principal+",\<br\>at an interest rate of "+rate+"%\<br\>You will receive an amount of "+interest+",\<br\>in the year "+year+"\<br\>"
+    }
 }
+
+
+
+
+
 
 
 
